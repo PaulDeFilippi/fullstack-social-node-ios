@@ -3,8 +3,10 @@ module.exports = async function(req, res) {
     sails.log.warn("Create post object with text: " + postBody)
 
     // Waterline creation syntax
-    const record = await Post.create({text: postBody}).fetch()
+    // session is created by Sails MVC out the box
+    const userId = req.session.userId
+    await Post.create({text: postBody, user: userId}).fetch()
 
-    res.send(record)
+    res.redirect('/post')
 
 }

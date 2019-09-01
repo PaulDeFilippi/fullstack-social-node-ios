@@ -11,8 +11,14 @@
     <% allPosts.forEach(p => { %>
         <div style="background-color: white; padding: 16px;
         margin-bottom: 12px">
-        <%= p.text %></div>
-
-
+        <div style="font-weight: bold">
+            <%= p.user.fullName %>
+        </div>
+        <div style="color: rgb(186, 186, 186)">
+            <%= new Date(p.createdAt).toLocaleTimeString()
+            + " " + new Date(p.createdAt).toLocaleDateString() %>
+        </div>
+        <%= p.text %>
+        </div>
      <% }) %>
 </div>
