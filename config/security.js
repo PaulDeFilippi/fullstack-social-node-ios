@@ -44,6 +44,8 @@ module.exports.security = {
   *                                                                           *
   ****************************************************************************/
 
-  csrf: true
+  // read up on CSRF - 
+
+  csrf: false
 
 };

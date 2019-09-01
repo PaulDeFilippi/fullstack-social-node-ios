@@ -47,6 +47,7 @@ module.exports.routes = {
   // …
 
 
+
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
@@ -66,5 +67,8 @@ module.exports.routes = {
   // My customizations
 
   'GET /listusers': 'user/listusers',
+  'GET /post': {action: 'post/home', csrf: false},
+  'POST /post': 'post/create'
+
 
 };
