@@ -1,0 +1,18 @@
+<div style="background-color: rgb(235, 233, 233);
+ padding: 24px">
+     
+
+    <form style="margin-bottom: 12px" action="/post" method="POST">
+        <input name='postBody' type="text" placeholder="Enter post text">
+        <button type="submit">Create Post</button>
+    </form>
+
+    Below are all of my posts: 
+    <% allPosts.forEach(p => { %>
+        <div style="background-color: white; padding: 16px;
+        margin-bottom: 12px">
+        <%= p.text %></div>
+
+
+     <% }) %>
+</div>
