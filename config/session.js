@@ -11,6 +11,10 @@
 
 module.exports.session = {
 
+  cookie: {
+    _expires: 365 * 24 * 60 * 60 * 1000
+  },
+
   /***************************************************************************
   *                                                                          *
   * Session secret is automatically generated when your new app is created   *

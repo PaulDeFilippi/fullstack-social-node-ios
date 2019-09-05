@@ -2,11 +2,14 @@
     .outer-div {
         display: flex; justify-content: center;
         height: 100%;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .inner-div {
         display: flex; justify-content: center;
-        flex-direction: column
+        flex-direction: column;
+        width: 300px;
+        
     }
 
     input {
@@ -41,11 +44,21 @@
         formData.append("emailAddress", email)
         formData.append('password', password)
 
+        const errorDiv = document.getElementById('errorMessage')
+        errorDiv.style.display = 'none'
+
         try {
             const response = await axios.put('/api/v1/entrance/login', formData) 
             document.location = "/post"
         } catch (err) {
             console.log(err.toString())
+            errorDiv.style.display = 'block'
+            if (err.response && err.response.data && err.response.data.problems) {
+                errorDiv.innerHTML = err.response.data.problems[0]
+            } else {
+                errorDiv.innerHTML = "Something went wrong with your submission."
+            }
+
         }
     }
 
@@ -82,6 +95,8 @@
                 <button onclick="handleLogin()" type="button">Login</button>
             </form>
 
+            <div id='errorMessage' style='font-size: 14px; color: red; text-align: center; margin-bottom: 16px;'></div>
+            
             <div>
                 Don't have an account?
                 <a href="/signup">Sign up</a>
